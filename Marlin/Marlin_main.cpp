@@ -2679,6 +2679,9 @@ inline void gcode_G0_G1() {
       }
 
     #endif //FWRETRACT
+    #if ENABLED(LASER_CONTROL)
+	laser_driver_ttl=code_seen('S') ? code_value_int() : 255;
+	#endif
     prepare_move_to_destination();
   }
 }
